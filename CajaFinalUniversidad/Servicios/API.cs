@@ -54,5 +54,10 @@ namespace CajaFinalUniversidad.Servicios
 
             // return URI of the created resource.
         }
+
+        internal Task<bool> IniciarSesion(string usuario, string contrasena)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
