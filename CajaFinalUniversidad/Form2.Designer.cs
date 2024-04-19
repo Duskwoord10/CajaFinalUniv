@@ -32,9 +32,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AgregarBTN = new System.Windows.Forms.Button();
-            this.SalirBTN = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pagarclic = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -73,25 +74,13 @@
             // 
             this.AgregarBTN.BackColor = System.Drawing.Color.Tomato;
             this.AgregarBTN.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AgregarBTN.Location = new System.Drawing.Point(411, 279);
+            this.AgregarBTN.Location = new System.Drawing.Point(320, 279);
             this.AgregarBTN.Name = "AgregarBTN";
             this.AgregarBTN.Size = new System.Drawing.Size(134, 43);
             this.AgregarBTN.TabIndex = 7;
             this.AgregarBTN.Text = "Consultar";
             this.AgregarBTN.UseVisualStyleBackColor = false;
             this.AgregarBTN.Click += new System.EventHandler(this.AgregarBTN_Click);
-            // 
-            // SalirBTN
-            // 
-            this.SalirBTN.BackColor = System.Drawing.Color.Tomato;
-            this.SalirBTN.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SalirBTN.Location = new System.Drawing.Point(842, 531);
-            this.SalirBTN.Name = "SalirBTN";
-            this.SalirBTN.Size = new System.Drawing.Size(134, 43);
-            this.SalirBTN.TabIndex = 8;
-            this.SalirBTN.Text = "pagar";
-            this.SalirBTN.UseVisualStyleBackColor = false;
-            this.SalirBTN.Click += new System.EventHandler(this.SalirBTN_Click);
             // 
             // dataGridView1
             // 
@@ -112,14 +101,39 @@
             this.dataGridView2.Size = new System.Drawing.Size(846, 150);
             this.dataGridView2.TabIndex = 11;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Tomato;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(553, 279);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 43);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Pago Realizado";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pagarclic
+            // 
+            this.pagarclic.BackColor = System.Drawing.Color.Tomato;
+            this.pagarclic.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pagarclic.Location = new System.Drawing.Point(818, 535);
+            this.pagarclic.Name = "pagarclic";
+            this.pagarclic.Size = new System.Drawing.Size(134, 43);
+            this.pagarclic.TabIndex = 14;
+            this.pagarclic.Text = "Pagar";
+            this.pagarclic.UseVisualStyleBackColor = false;
+            this.pagarclic.Click += new System.EventHandler(this.pagarclic_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1120, 652);
+            this.ClientSize = new System.Drawing.Size(978, 581);
+            this.Controls.Add(this.pagarclic);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.SalirBTN);
             this.Controls.Add(this.AgregarBTN);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -141,8 +155,9 @@
         private Label label2;
         private Label label3;
         private Button AgregarBTN;
-        private Button SalirBTN;
         private DataGridView dataGridView1;
         private DataGridView dataGridView2;
+        private Button button1;
+        private Button pagarclic;
     }
 }

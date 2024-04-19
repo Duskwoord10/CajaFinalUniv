@@ -16,6 +16,6 @@ namespace CajaFinalUniversidad.Modelos
 
         public decimal factura_monto { get; set; }
 
-        public DateOnly fecha_factura { get; set; }
+        public DateTime fecha_factura { get; set; }
     }
 }

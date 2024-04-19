@@ -15,19 +15,4 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="universidadDBDataSet.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>universidadDBDataSet.xsd</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="universidadDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>universidadDBDataSet.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
 </Project>

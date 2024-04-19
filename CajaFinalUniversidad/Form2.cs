@@ -89,10 +89,6 @@ namespace CajaFinalUniversidad
            
         }
 
-       
-
-       
-
         private void AgregarBTN_Click(object sender, EventArgs e)
         {
             //btn consultar
@@ -110,6 +106,35 @@ namespace CajaFinalUniversidad
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //facturar
+            Recibo form2 = new Recibo();
+            form2.Show();
+        }
+
+        private void pagarclic_Click(object sender, EventArgs e)
+        {
+            Seleccion seleccion= new Seleccion();
+            int monto_total = seleccion.seleccion_creditos * 4200;
+            //evento 
+            string path = @"C:\recibo.txt";
+            if (!File.Exists(path))
+            {
+                File.Create(path);
+                TextWriter tw = new StreamWriter(path);
+                tw.WriteLine(monto_total);
+                tw.Close();
+            }
+            else if (File.Exists(path))
+            {
+                using (var sw = new StreamWriter(path, true))
+                {
+                    sw.WriteLine("The next line!");
+                }
+            }
         }
     }
 }

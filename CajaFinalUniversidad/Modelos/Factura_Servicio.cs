@@ -14,7 +14,7 @@ namespace CajaFinalUniversidad.Modelos
         [ForeignKey("Estudiante")]
         public int estudiante_id { get; set; }
 
-        public DateOnly factura_fecha { get; set; }
+        public DateTime factura_fecha { get; set; }
 
         [ForeignKey("Metodo_pago")]
         public int metodo_pago_id { get; set; }

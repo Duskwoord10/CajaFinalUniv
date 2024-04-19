@@ -17,6 +17,7 @@ namespace CajaFinalUniversidad.Servicios
         static HttpClient client = new HttpClient();
        public API()
         {
+            if (client.BaseAddress==null)
             client.BaseAddress = new Uri("https://integracion-api.duckdns.org/api/");
         }
         public List<Estudiante> ConsultaEstudiante()
@@ -35,17 +36,42 @@ namespace CajaFinalUniversidad.Servicios
 
         public List<Seleccion> ConsultaSeleccion(int ID_Estudiante)
         {
-            List<Seleccion> Lista_Seleccion= null;
+
+            List<Seleccion> Lista_Seleccion= new List<Seleccion>();
             HttpResponseMessage response = client.GetAsync("Seleccion").Result;
             if (response.IsSuccessStatusCode)
             {
                 var resultado = response.Content.ReadAsStringAsync();
-                Lista_Seleccion = JsonConvert.DeserializeObject<List<Seleccion>>(resultado.Result);
+               var Seleccion = JsonConvert.DeserializeObject<List<Seleccion>>(resultado.Result);
+                if (Seleccion.Any(c => c.estudiante_id == ID_Estudiante))
+                {
+                    Lista_Seleccion = Seleccion.Where(c => c.estudiante_id == ID_Estudiante).ToList();
 
+                };
             }
-            return Lista_Seleccion.Where(c => c.estudiante_id==ID_Estudiante).ToList();
+            
+
+            return Lista_Seleccion;
         }
-      public void CrearCuentaPorCobrar(Cuentas_cobrar  Model)
+        public List<Factura_pago> ConsultaFactura()
+        {
+
+            List<Factura_pago> Lista_Factura = new List<Factura_pago>();
+            HttpResponseMessage response = client.GetAsync("Factura_pago").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var resultado = response.Content.ReadAsStringAsync();
+                var Seleccion = JsonConvert.DeserializeObject<List<Factura_pago>>(resultado.Result);
+                
+                    Lista_Factura = Seleccion.ToList();
+
+                
+            }
+
+
+            return Lista_Factura;
+        }
+        public void CrearCuentaPorCobrar(Cuentas_cobrar  Model)
       {
             //Esto es para crear el registro 
             HttpResponseMessage response =  client.PostAsJsonAsync(
@@ -53,11 +79,6 @@ namespace CajaFinalUniversidad.Servicios
             response.EnsureSuccessStatusCode();
 
             // return URI of the created resource.
-        }
-
-        internal Task<bool> IniciarSesion(string usuario, string contrasena)
-        {
-            throw new NotImplementedException();
         }
     }
 }
